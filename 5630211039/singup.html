@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>NEW HOME MY PET</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+			<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+			<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+		</noscript>
+
+		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+<body id="top">
+
+	<!-- Header -->
+		<header id="header" class="skel-layers-fixed">
+			<h1><a href="index.html">MY PET</a></h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="singin.html"class="button special">sign in</a></li>
+					<li><a href="singup.html"class="button special">Register</a></li>
+				</ul>
+			</nav>
+		</header>
+<br><br>
+		<div class="container">
+		      <h3><i class="fa fa-bookmark-o" aria-hidden="true"></i> REGISTER NEW USER   <i class="fa fa-bookmark-o" aria-hidden="true"></i></h3>
+		      <div class="panel panel-default">
+
+		      <div class="panel-body">
+
+		      <form id="contact" class="" action="#" method="post">
+
+		        <div class="form-group">
+		          <label for="uname" class="col-sm-2">Username</label>
+		          <input type="text" class="form-control" id="uname" placeholder="">
+
+		        </div>
+
+		        <div class="form-group">
+		          <label for="password" class="col-sm-2">Password</label>
+		          <input type="text" class="form-control" id="password" placeholder="" maxlength="12">
+		          <p class="help-block"></p>
+		        </div>
+
+		        <div class="form-group">
+		          <label for="fname" class="col-sm-2">Firstname</label>
+		          <input type="text" class="form-control" id="fname" placeholder="" >
+		          <p class="help-block"></p>
+		        </div>
+
+		        <div class="form-group">
+		          <label for="lname" class="col-sm-2">Lastname</label>
+		          <input type="text" class="form-control" id="lname" placeholder="">
+		          <p class="help-block"></p>
+		        </div>
+
+		        <div class="form-group">
+		          <label for="email" class="col-sm-2">Email</label>
+		          <input type="text" class="form-control" id="email" placeholder="" >
+		          <p class="help-block"></p>
+		        </div>
+
+		        <div class="form-group">
+		          <label for="tele" class="col-sm-2">Telephone</label>
+		          <input type="text" class="form-control" id="tele" placeholder="" >
+		          <p class="help-block"></p>
+		        </div>
+
+		        <button type="button" name="button" class="button special" id="sign">Submit</button>
+
+		      </form>
+		     </div>
+		   </div>
+		 </div>
+
+		    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js" charset="utf-8"></script>
+		    <!-- Include all compiled plugins (below), or include individual files as needed -->
+		    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		    <script type="text/javascript">
+
+
+
+
+		    $("#sign").click(function(){
+		      var newuser={
+		          username:"",
+		          password:"",
+		          firstname:"",
+		          lastname:"",
+		          email:"",
+		          tel:"",
+
+		      };
+		      validateForm();
+		      newuser.username = $("#uname").val();
+		      newuser.password = $("#password").val();
+		      newuser.firstname = $("#fname").val();
+		      newuser.lastname = $("#lname").val();
+		      newuser.email = $("#email").val();
+		      newuser.tel = $("#tele").val();
+		      console.log(newuser);
+
+		      var url = "http://membershipwebapi977290.azurewebsites.net/api/Members";
+		      $.post(url, newuser, function(data, status){
+		        console.log("inserted"+ data);
+		      });
+		    });
+
+		    function validateForm(){
+
+		    var nameReg = /^[A-Za-z]+$/;
+		    var numberReg =  /^[0-9]+$/;
+		    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+		    var names = $('#uname').val();
+		    var passwords = $('#password').val();
+		    var fnames = $('#fname').val();
+		    var lnames = $('#lname').val();
+		    var emails = $('#email').val();
+		    var teles = $('#tele').val();
+
+		    var inputVal = new Array(names, passwords, fnames, lnames, emails, teles);
+
+		    var inputMessage = new Array("user name", "password", "first name", "last name", "email","telephone");
+
+		     $('.error').hide();
+
+		        if(inputVal[0] == ""){
+		            $('#uname').after('<span class="error"> Please enter your ' + inputMessage[0] + '</span>');
+		        }
+		        else if(!nameReg.test(names)){
+		            $('#uname').after('<span class="error"> Letters only</span>');
+		        }
+
+
+		        if(inputVal[1] == ""){
+		            $('#password').after('<span class="error"> Please enter your ' + inputMessage[1] + '</span>');
+		        }
+		        else if(!numberReg.test(passwords)){
+		            $('#password').after('<span class="error"> Number only</span>');
+		        }
+
+
+		        if(inputVal[2] == ""){
+		            $('#fname').after('<span class="error"> Please enter your ' + inputMessage[2] + '</span>');
+		        }
+		        else if(!nameReg.test(fnames)){
+		            $('#fname').after('<span class="error"> Please enter a valid email address</span>');
+		        }
+
+
+		        if(inputVal[3] == ""){
+		            $('#lname').after('<span class="error"> Please enter your ' + inputMessage[3] + '</span>');
+		        }
+		        else if(!nameReg.test(lnames)){
+		            $('#lname').after('<span class="error"> Letter only</span>');
+		        }
+
+
+		        if(inputVal[4] == ""){
+		            $('#email').after('<span class="error"> Please enter your ' + inputMessage[4] + '</span>');
+		        }
+		        else if(!emailReg.test(emails)){
+		            $('#email').after('<span class="error"> Please enter a valid email address </span>');
+		        }
+
+
+		        if(inputVal[5] == ""){
+		            $('#tele').after('<span class="error"> Please enter your ' + inputMessage[5] + '</span>');
+		        }
+		        else if(!numberReg.test(teles)){
+		            $('#tele').after('<span class="error">  </span>');
+		        }
+		}
+
+
+
+		    </script>
+		    </script>
+		  </body>
+		</html>

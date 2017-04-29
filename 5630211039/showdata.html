@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<!--
+	Ion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>NEW HOME MY PET</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+			<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		</noscript>
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header" class="skel-layers-fixed">
+				<h1><a href="index.html">MY PET</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="singin.html" class="button special">logout</a></li>
+
+					</ul>
+				</nav>
+			</header>
+			<br><br>
+
+
+
+      <div class="container">
+        <h3><i class="fa fa-bookmark-o" aria-hidden="true"></i>  User Information  <i class="fa fa-bookmark-o" aria-hidden="true"></i></h3>
+        <form class="" action="#" method="post">
+          <div class="form-group">
+            <label for="uname" >Username</label>
+            <p class="form-control-static" id="uname" placeholder=""></p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <p class="form-control-static" id="password" placeholder=""></p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="fname">First name</label>
+            <p class="form-control-static" id="fname" placeholder=""></p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="lname">Last name</label>
+            <p class="form-control-static" id="lname" placeholder=""></p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <p class="form-control-static" id="email" placeholder=""></p>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="tele">Telephone</label>
+            <p class="form-control-static" id="tele" placeholder=""></p>
+          </div>
+          <br><br>
+          <button type="button" id="edit" name="button" class="button special">Edit</button>
+        </form>
+
+
+       </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+      //Function for extract parameters from querystring
+      $.urlParam = function(name){
+          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          return results[1] || 0;
+      }
+      $(function(){
+          //Get user Id from querystring parameters
+          var id = $.urlParam('id');
+          //Create a Web Api url for getting a member info
+          var url = "http://membershipwebapi977290.azurewebsites.net/api/Members/" + id;
+          console.log(url);
+          $.get(url, function(data, status) {
+              console.log(data);
+              $('#uname').html(data.UserName);
+              $('#password').html(data.Password);
+              $('#fname').html(data.FirstName);
+              $('#lname').html(data.LastName);
+              $('#email').html(data.Email);
+              $('#tele').html(data.Tel);
+              //If user click edit, go to edituser page
+              $("#edit").click(function () {
+                  window.location.href = "editUserinfo.html?id=" + data.Id;
+              });
+          });
+      });
+  </script>
+</body>
+</html>
